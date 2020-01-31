@@ -18,6 +18,8 @@ RUN set -ex && \
 
 ### Networking Configuration
 EXPOSE 3310
+### Docker Health-Check
+HEALTHCHECK --interval=60s --timeout=3s CMD nc localhost 3310 || exit 1
 
 ### Add Files
 ADD install /
